@@ -1,0 +1,32 @@
+<section class="wrapper">
+  <div class="content-mobile" *ngIf="isMobile">
+    <div>
+      <h3>{{parts[activeSection].name}}</h3>
+      <p>{{parts[activeSection].content}}</p>
+    </div>
+  </div>
+  <nav>
+    <div *ngFor="let part of parts; let i = index" (click)="navigate(i)"
+      [ngClass]="{'active-step':activeSection >= i, 'active-link': activeSection === i}">{{part.name}}
+      <span #activeStep [attr.data-num]="i"></span>
+    </div>
+  </nav>
+  <div #progressMobile class="progress-bar-mobile"></div>
+  <div class="progress-bar" *ngIf="!isMobile">
+    <div class="start"></div>
+    <div #status class="status"></div>
+    <div class="end"></div>
+  </div>
+  <div class="content" *ngIf="!isMobile">
+    <h3>{{parts[activeSection].name}}</h3>
+    <div *ngIf="activeSection === 0"></div>
+    <div *ngIf="activeSection === 1"></div>
+    <div *ngIf="activeSection === 2"></div>
+    <div *ngIf="activeSection === 3"></div>
+    <p>{{parts[activeSection].content}}</p>
+  </div>
+  <div class="button-nav">
+    <button type="button" (click)="previous()">previous</button>
+    <button type="button" (click)="next()">next</button>
+  </div>
+</section>
