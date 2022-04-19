@@ -1,13 +1,20 @@
 <section class="wrapper">
   <div class="content-mobile" *ngIf="isMobile">
     <div>
-      <h3>{{parts[activeSection].name}}</h3>
-      <p>{{parts[activeSection].content}}</p>
+      <h3>{{ parts[activeSection].name }}</h3>
+      <p>{{ parts[activeSection].content }}</p>
     </div>
   </div>
   <nav>
-    <div *ngFor="let part of parts; let i = index" (click)="navigate(i)"
-      [ngClass]="{'active-step':activeSection >= i, 'active-link': activeSection === i}">{{part.name}}
+    <div
+      *ngFor="let part of parts; let i = index"
+      (click)="navigate(i)"
+      [ngClass]="{
+        'active-step': activeSection >= i,
+        'active-link': activeSection === i
+      }"
+    >
+      {{ part.name }}
       <span #activeStep [attr.data-num]="i"></span>
     </div>
   </nav>
@@ -18,12 +25,12 @@
     <div class="end"></div>
   </div>
   <div class="content" *ngIf="!isMobile">
-    <h3>{{parts[activeSection].name}}</h3>
+    <h3>{{ parts[activeSection].name }}</h3>
     <div *ngIf="activeSection === 0"></div>
     <div *ngIf="activeSection === 1"></div>
     <div *ngIf="activeSection === 2"></div>
     <div *ngIf="activeSection === 3"></div>
-    <p>{{parts[activeSection].content}}</p>
+    <p>{{ parts[activeSection].content }}</p>
   </div>
   <div class="button-nav">
     <button type="button" (click)="previous()">previous</button>
