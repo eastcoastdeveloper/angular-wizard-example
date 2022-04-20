@@ -3,6 +3,7 @@
   line-height: 22px;
   padding: 20px;
   min-width: 375px;
+  margin: 0 10px;
   nav {
     margin-top: 20px;
     display: grid;
@@ -118,7 +119,7 @@
 @media screen and (max-width: 992px) {
   .wrapper {
     .content-mobile {
-      height: calc(100% - 80px);
+      height: calc(100% - 100px);
     }
   }
 }
@@ -126,7 +127,7 @@
 @media screen and (max-width: 675px) {
   .wrapper {
     position: relative;
-    height: 90%;
+    height: 85%;
     nav {
       display: block;
       text-align: left;
